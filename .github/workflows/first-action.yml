@@ -14,4 +14,4 @@ jobs:
       - uses: ghazian/gha-label-issue@v0.0.1
         with:
           gh-token: ${{ secrets.GITHUB_TOKEN }}
-          jsonfile: reports.json
+          jsonfile: report.json
