@@ -6,12 +6,12 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Print greeting
         run: echo "Hellow world!"
       - name: Print goodbye
         run: echo "Done -bye!"
-      - uses: actions/checkout@v3
-      - uses: ghazian/gha-label-issue
+      - uses: ghazian/gha-label-issue@v0.0.1
         with:
           gh-token: ${{ secrets.GITHUB_TOKEN }}
           jsonfile: reports.json
