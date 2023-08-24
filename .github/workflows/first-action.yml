@@ -1,11 +1,17 @@
 name: First Workflow
-on: workflow_dispatch
-jobs: 
-  first-job: 
+on:
+  pull_request:
+    types: [opened, reopened]
+jobs:
+  first-job:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - name: Print greeting
         run: echo "Hellow world!"
       - name: Print goodbye
         run: echo "Done -bye!"
-    
+      - uses: actions/checkout@v3
+      - uses: ghazian/gha-label-issue
+        with:
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
+          jsonfile: reports.json
